@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 187132907}
   - component: {fileID: 187132906}
   m_Layer: 5
-  m_Name: Canva30(ModalWindow)
+  m_Name: Canvas30(ModalWindow)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8313,7 +8313,7 @@ GameObject:
   - component: {fileID: 1749639119}
   - component: {fileID: 1749639118}
   m_Layer: 5
-  m_Name: Canvas20(PauseMenu)
+  m_Name: Canvas40(PauseMenu)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8380,7 +8380,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 40
   m_TargetDisplay: 0
 --- !u!224 &1749639121
 RectTransform:
@@ -9807,5 +9807,5 @@ SceneRoots:
   - {fileID: 1391219725}
   - {fileID: 1428858399}
   - {fileID: 1339145971}
-  - {fileID: 1749639121}
   - {fileID: 187132909}
+  - {fileID: 1749639121}
