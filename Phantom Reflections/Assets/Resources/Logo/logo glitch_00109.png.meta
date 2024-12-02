@@ -1,0 +1,739 @@
+fileFormatVersion: 2
+guid: 27198c8a572f4904ba540b32ca901a51
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1003103947721788855
+    second: logo glitch_00109_0
+  - first:
+      213: -2740979061661826331
+    second: logo glitch_00109_1
+  - first:
+      213: 1511868693718844082
+    second: logo glitch_00109_2
+  - first:
+      213: -3969864669473295721
+    second: logo glitch_00109_3
+  - first:
+      213: -6511888102112660451
+    second: logo glitch_00109_4
+  - first:
+      213: -5812436936011297705
+    second: logo glitch_00109_5
+  - first:
+      213: -7126675667116609425
+    second: logo glitch_00109_6
+  - first:
+      213: -4417372289502998712
+    second: logo glitch_00109_7
+  - first:
+      213: 589182193717059444
+    second: logo glitch_00109_8
+  - first:
+      213: 7819746340921453489
+    second: logo glitch_00109_9
+  - first:
+      213: 4210177651873726358
+    second: logo glitch_00109_10
+  - first:
+      213: -7294290853988082077
+    second: logo glitch_00109_11
+  - first:
+      213: 7452120427064260711
+    second: logo glitch_00109_12
+  - first:
+      213: -5894306092135205100
+    second: logo glitch_00109_13
+  - first:
+      213: -8164676504759777365
+    second: logo glitch_00109_14
+  - first:
+      213: -1475180791709746466
+    second: logo glitch_00109_15
+  - first:
+      213: -6460151277311876335
+    second: logo glitch_00109_16
+  - first:
+      213: -2444117125250648069
+    second: logo glitch_00109_17
+  - first:
+      213: -1356927873349700627
+    second: logo glitch_00109_18
+  - first:
+      213: 2089081624784933256
+    second: logo glitch_00109_19
+  - first:
+      213: 5536126280176689764
+    second: logo glitch_00109_20
+  - first:
+      213: -1953665188082219514
+    second: logo glitch_00109_21
+  - first:
+      213: 5581540219201095747
+    second: logo glitch_00109_22
+  - first:
+      213: 298347295828652170
+    second: logo glitch_00109_23
+  - first:
+      213: 7234294808623894362
+    second: logo glitch_00109_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: logo glitch_00109_0
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 829
+        width: 833
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 942304336424412f0800000000000000
+      internalID: -1003103947721788855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_1
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 849
+        width: 246
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e20dd4d01616f9d0800000000000000
+      internalID: -2740979061661826331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_2
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 864
+        width: 152
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b24524119c3bf410800000000000000
+      internalID: 1511868693718844082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_3
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 854
+        width: 270
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792bba9cd1538e8c0800000000000000
+      internalID: -3969864669473295721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_4
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 838
+        width: 240
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d147b78c54021a5a0800000000000000
+      internalID: -6511888102112660451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_5
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 839
+        width: 92
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ccfadf663165fa0800000000000000
+      internalID: -5812436936011297705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_6
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 813
+        width: 643
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6038105d36f81d90800000000000000
+      internalID: -7126675667116609425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_7
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 804
+        width: 828
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84f05839e4752b2c0800000000000000
+      internalID: -4417372289502998712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_8
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 797
+        width: 642
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f9d7465123d2800800000000000000
+      internalID: 589182193717059444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_9
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 788
+        width: 540
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bba844cdd1558c60800000000000000
+      internalID: 7819746340921453489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_10
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 272
+        width: 1475
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69fb835944e8d6a30800000000000000
+      internalID: 4210177651873726358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_11
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 779
+        width: 832
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ed8a77d1975ca90800000000000000
+      internalID: -7294290853988082077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_12
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 309
+        width: 319
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768f89e9b004b6760800000000000000
+      internalID: 7452120427064260711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_13
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 306
+        width: 260
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4173cdca6d7333ea0800000000000000
+      internalID: -5894306092135205100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_14
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 314
+        width: 493
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7c0db2afd31be80800000000000000
+      internalID: -8164676504759777365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_15
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 309
+        width: 97
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eda39a2c2ea178be0800000000000000
+      internalID: -1475180791709746466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_16
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 307
+        width: 100
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1132a8004aee856a0800000000000000
+      internalID: -6460151277311876335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_17
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 300
+        width: 193
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf77cff8c60c41ed0800000000000000
+      internalID: -2444117125250648069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_18
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 298
+        width: 269
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de33a2bd9493b2de0800000000000000
+      internalID: -1356927873349700627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_19
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 304
+        width: 293
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8811a185ba8edfc10800000000000000
+      internalID: 2089081624784933256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_20
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 56
+        width: 1230
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 462e2a9258544dc40800000000000000
+      internalID: 5536126280176689764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_21
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 287
+        width: 191
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6060056ccdf23e4e0800000000000000
+      internalID: -1953665188082219514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_22
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 281
+        width: 196
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3488901d14d957d40800000000000000
+      internalID: 5581540219201095747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_23
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 281
+        width: 482
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80b09be841f32400800000000000000
+      internalID: 298347295828652170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo glitch_00109_24
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 279
+        width: 350
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5fca7cacc0656460800000000000000
+      internalID: 7234294808623894362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      logo glitch_00109_0: -1003103947721788855
+      logo glitch_00109_1: -2740979061661826331
+      logo glitch_00109_10: 4210177651873726358
+      logo glitch_00109_11: -7294290853988082077
+      logo glitch_00109_12: 7452120427064260711
+      logo glitch_00109_13: -5894306092135205100
+      logo glitch_00109_14: -8164676504759777365
+      logo glitch_00109_15: -1475180791709746466
+      logo glitch_00109_16: -6460151277311876335
+      logo glitch_00109_17: -2444117125250648069
+      logo glitch_00109_18: -1356927873349700627
+      logo glitch_00109_19: 2089081624784933256
+      logo glitch_00109_2: 1511868693718844082
+      logo glitch_00109_20: 5536126280176689764
+      logo glitch_00109_21: -1953665188082219514
+      logo glitch_00109_22: 5581540219201095747
+      logo glitch_00109_23: 298347295828652170
+      logo glitch_00109_24: 7234294808623894362
+      logo glitch_00109_3: -3969864669473295721
+      logo glitch_00109_4: -6511888102112660451
+      logo glitch_00109_5: -5812436936011297705
+      logo glitch_00109_6: -7126675667116609425
+      logo glitch_00109_7: -4417372289502998712
+      logo glitch_00109_8: 589182193717059444
+      logo glitch_00109_9: 7819746340921453489
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

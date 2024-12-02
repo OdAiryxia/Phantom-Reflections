@@ -1,4 +1,4 @@
-using Flower;
+﻿using Flower;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +20,27 @@ public class ItemEventChirino : MonoBehaviour
         flowerSys.RegisterCommand("LockChirino", LockChirino);
         flowerSys.RegisterCommand("ReleaseChirino", ReleaseChirino);
         flowerSys.RegisterCommand("SetQuestion", SetQuestionToExorcismGame);
+
+
+        flowerSys.RegisterCommand("ProtagonistSprite", (List<string> _params) =>
+        {
+            if (_params.Count > 0)
+            {
+                // 嘗試將參數轉換為 int
+                if (int.TryParse(_params[0], out int spriteIndex))
+                {
+                    ProtagonistSprite.instance.ChangeSprite(spriteIndex);
+                }
+                else
+                {
+                    Debug.LogWarning("無法將參數轉換為整數：" + _params[0]);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("缺少參數！");
+            }
+        });
     }
 
     public void chirino()
