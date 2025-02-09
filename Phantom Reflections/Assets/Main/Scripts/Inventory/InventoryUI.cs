@@ -1,12 +1,22 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static PauseManager;
 
 public class InventoryUI : MonoBehaviour
 {
+    public enum ShowState
+    {
+        Show,
+        Hide
+    }
+
     public static InventoryUI instance;
 
-    public GameObject slotPrefeb;
+    public ShowState currentState = ShowState.Hide;
+    [SerializeField] private CanvasGroup barCanvasGroup;
+
+    [SerializeField] private GameObject slotPrefeb;
     [SerializeField] private Transform slotParent;
 
     [SerializeField] private GameObject itemInspectorPanel;
@@ -14,8 +24,9 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI clueNameText;
     [SerializeField] private TextMeshProUGUI clueDescriptionText;
 
+    [HideInInspector] public bool onInventoryInspector;
 
-    private void Awake()
+    void Awake()
     {
         if (instance == null)
         {
@@ -27,15 +38,54 @@ public class InventoryUI : MonoBehaviour
         }
 
         itemInspectorPanel.SetActive(false);
+        Hide();
     }
-    private void Start()
+    void Start()
     {
         InventoryManager.instance.onInventoryChangedEvent += OnUpdateInventory;
     }
 
-    private void OnUpdateInventory()
+    void Update()
     {
-        foreach(Transform t in slotParent)
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ToggleShow();
+        }
+    }
+
+    public void ToggleShow()
+    {
+        switch (currentState)
+        {
+            case ShowState.Show:
+                Hide();
+                break;
+
+            case ShowState.Hide:
+                Show();
+                break;
+        }
+    }
+
+    void Show()
+    {
+        barCanvasGroup.alpha = 1f;
+        barCanvasGroup.interactable = true;
+        barCanvasGroup.blocksRaycasts = true;
+        currentState = ShowState.Show;
+    }
+
+    void Hide()
+    {
+        barCanvasGroup.alpha = 0f;
+        barCanvasGroup.interactable = false;
+        barCanvasGroup.blocksRaycasts = false;
+        currentState = ShowState.Hide;
+    }
+
+    void OnUpdateInventory()
+    {
+        foreach (Transform t in slotParent)
         {
             Destroy(t.gameObject);
         }
@@ -45,7 +95,7 @@ public class InventoryUI : MonoBehaviour
 
     public void DrawInventory()
     {
-        foreach(InventoryClue clue in InventoryManager.instance.inventory)
+        foreach (InventoryClue clue in InventoryManager.instance.inventory)
         {
             AddInventorySlot(clue);
         }
@@ -71,5 +121,12 @@ public class InventoryUI : MonoBehaviour
     public void HideClueDetails()
     {
         itemInspectorPanel.SetActive(false);
+        PauseManager.instance.pauseButton.onClick.RemoveAllListeners();
+        PauseManager.instance.pauseButton?.onClick.AddListener(PauseManager.instance.TogglePause);
+        PauseManager.instance.pauseButton.image.sprite = PauseManager.instance.pauseImage;
+
+        TestSceneManager.instance.buttonInteruption = false;
+        onInventoryInspector = false;
+        Time.timeScale = 1f;
     }
 }

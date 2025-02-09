@@ -1,7 +1,6 @@
 public enum SceneIndexes
 {
-    PersistentScene = 0,
-    TitleScreen = 1,
-    UI = 2,
-    SampleScene = 3
+    TitleScreen = 0,
+    UI = 1,
+    SampleScene = 2
 }

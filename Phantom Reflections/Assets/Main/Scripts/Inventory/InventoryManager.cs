@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,18 +7,16 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
 
-
     private Dictionary<ClueData, InventoryClue> m_clueDictionary;
     public List<InventoryClue> inventory;
 
     public Action onInventoryChangedEvent;
 
-    private void Awake()
+    void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
         }
         else
         {

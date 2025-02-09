@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class CluePickup : MonoBehaviour
+public class CluePickup : ButtonBaseFunction
 {
     public ClueData clue;
 
-    public void OnClicked()
+    protected override void OnMouseDown()
     {
-        InventoryManager.instance.Add(clue);
-        Destroy(gameObject);
+        if (!TestSceneManager.instance.buttonInteruption)
+        {
+            InventoryManager.instance.Add(clue);
+            Destroy(gameObject);
+        }
     }
 }

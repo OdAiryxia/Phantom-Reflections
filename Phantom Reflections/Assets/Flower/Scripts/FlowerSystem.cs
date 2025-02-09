@@ -165,6 +165,21 @@ namespace Flower
             SetPrefabPath("ui_image", "DefaultUIImagePrefab");
 
             isDefaultLogEnable = true;
+
+            // 嘗試獲取 AudioSource，如果不存在則添加
+            textAudioSource = GetComponent<AudioSource>();
+            if (textAudioSource == null)
+            {
+                textAudioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            // 配置 AudioSource 的默認屬性
+            textAudioSource.playOnAwake = false;
+            textAudioSource.loop = false;
+            textAudioSource.volume = 0.1f;
+            textAudioSource.pitch = 0.75f;
+            string audioClipPath = "Audio/text_appear";
+            textAudioSource.clip = Resources.Load<AudioClip>(audioClipPath);
         }
 
         #region Public Function
@@ -928,6 +943,17 @@ namespace Flower
             }
             return SpecialCharType.NormalChar;
         }
+
+        private AudioSource textAudioSource;
+
+        private void PlayTypingSound()
+        {
+            if (!isTextCompleted && textAudioSource != null && textAudioSource.clip != null)
+            {
+                textAudioSource.PlayOneShot(textAudioSource.clip);
+            }
+        }
+
         private IEnumerator SetTextTask(string _text)
         {
             isOnSpecialChar = false;
@@ -963,6 +989,7 @@ namespace Flower
                     {
                         case SpecialCharType.NormalChar:
                             AddChar(_text[i]);
+                            PlayTypingSound();
                             break;
                         case SpecialCharType.Variable:
                             int _index = 0;
@@ -970,6 +997,7 @@ namespace Flower
                             {
                                 AddChar(this.variableString[_index]);
                                 lastChar = this.variableString[_index];
+                                PlayTypingSound();
                                 _index++;
                             }
                             break;
@@ -1015,6 +1043,7 @@ namespace Flower
             isTextCompleted = true;
             yield return null;
         }
+
         private float GetSpritePPU(Sprite sp)
         {
             float pixelPerUnit = sp.rect.width / sp.bounds.size.x;

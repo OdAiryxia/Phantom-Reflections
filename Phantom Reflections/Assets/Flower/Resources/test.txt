@@ -1,6 +1,6 @@
-﻿[LockChirino]
+﻿[LockButton]
 [show]
-
+[ProtagonistSprite,0]
 嘿[l]嗨你好[w]
 [ProtagonistSprite,1]
 嘿是我[lr]
@@ -13,7 +13,9 @@
 出錯後顯示該場景找不到[w]
 [ProtagonistSprite,4]
 你媽是臭雞雞[w]
+[ProtagonistSprite,5]
 ㄟ黑[w]
-
+[ProtagonistSprite,6]
+測試[w]
 [hide]
-[ReleaseChirino]
+[ReleaseButton]
