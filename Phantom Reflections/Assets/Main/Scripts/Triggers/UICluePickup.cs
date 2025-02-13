@@ -66,6 +66,7 @@ public class UICluePickup : MonoBehaviour
                 }
                 if (destoryItself)
                 {
+                    CGManager.instance.cgButtons.Remove(button);
                     Destroy(gameObject);
                 }
             }

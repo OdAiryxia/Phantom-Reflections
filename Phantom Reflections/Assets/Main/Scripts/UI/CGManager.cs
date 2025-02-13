@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +11,8 @@ public class CGManager : MonoBehaviour
     [SerializeField] private Transform CgParent;
     public Button closeButton;
 
-    [SerializeField] private GameObject currentCg;
+    public GameObject currentCg;
+    public List<Button> cgButtons;
 
     [HideInInspector] public bool onCg = false;
     void Awake()
@@ -43,10 +43,16 @@ public class CGManager : MonoBehaviour
     public void OpenCG(GameObject cg)
     {
         onCg = true;
+        currentCg = cg;
 
         closeButton.gameObject.SetActive(true);
 
-        currentCg = cg;
+        cgButtons = new List<Button>();
+        foreach (Button button in currentCg.GetComponentsInChildren<Button>())
+        {
+            cgButtons.Add(button);
+        }
+
         currentCg.SetActive(true);
         TestSceneManager.instance.buttonInteruption = true;
     }
@@ -59,5 +65,7 @@ public class CGManager : MonoBehaviour
 
         currentCg.SetActive(false);
         TestSceneManager.instance.buttonInteruption = false;
+        currentCg = null;
+        cgButtons.Clear();
     }
 }

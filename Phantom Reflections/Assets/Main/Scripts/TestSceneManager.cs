@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TestSceneManager : MonoBehaviour
 {
@@ -75,6 +76,11 @@ public class TestSceneManager : MonoBehaviour
         if (CGManager.instance.onCg)
         {
             CGManager.instance.closeButton.gameObject.SetActive(false);
+
+            foreach (Button button in CGManager.instance.cgButtons)
+            {
+                button.enabled = false;
+            }
         }
     }
 
@@ -85,6 +91,11 @@ public class TestSceneManager : MonoBehaviour
         if (CGManager.instance.onCg)
         {
             CGManager.instance.closeButton.gameObject.SetActive(true);
+
+            foreach (Button button in CGManager.instance.cgButtons)
+            {
+                button.enabled = true;
+            }
         }
     }
 
