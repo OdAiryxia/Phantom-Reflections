@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,7 +43,7 @@ public class PauseManager : MonoBehaviour
             {
                 TogglePause();
             }
-            else if (InventoryUI.instance.onInventoryInspector)
+            else if (InventoryUI.instance.onInventoryInspector && !ExorcismManager.instance.onExorcismProgress)
             {
                 InventoryUI.instance.HideClueDetails();
             }
@@ -64,14 +64,14 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    void Resume()
+    public void Resume()
     {
         pauseMenuUI?.SetActive(false);
         Time.timeScale = 1f;
         currentState = GameState.Playing;
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI?.SetActive(true);
         Time.timeScale = 0f;

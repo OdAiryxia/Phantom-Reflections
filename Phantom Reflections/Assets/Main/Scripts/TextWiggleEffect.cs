@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class TextWiggleEffect : MonoBehaviour
 {
-    public float shakeAmount = 2f; // ¾_°Ê´T«×
-    public float speed = 5f;       // ¾_°Ê³t«×
+    public float shakeAmount = 2f; // éœ‡å‹•å¹…åº¦
+    public float speed = 5f;       // éœ‡å‹•é€Ÿåº¦
 
     private TMP_Text textMeshPro;
     private TMP_TextInfo textInfo;
@@ -35,19 +35,19 @@ public class TextWiggleEffect : MonoBehaviour
 
             Vector3[] vertices = textInfo.meshInfo[meshIndex].vertices;
 
-            // ²£¥ÍÀH¾÷¾_°Ê
+            // ç”¢ç”Ÿéš¨æ©Ÿéœ‡å‹•
             float offsetX = Mathf.Sin(Time.time * speed + i) * shakeAmount;
             float offsetY = Mathf.Cos(Time.time * speed + i) * shakeAmount;
             Vector3 shakeOffset = new Vector3(offsetX, offsetY, 0);
 
-            // À³¥Î¾_°Ê¨ì¨C­Ó³»ÂI
+            // æ‡‰ç”¨éœ‡å‹•åˆ°æ¯å€‹é ‚é»
             vertices[vertexIndex + 0] += shakeOffset;
             vertices[vertexIndex + 1] += shakeOffset;
             vertices[vertexIndex + 2] += shakeOffset;
             vertices[vertexIndex + 3] += shakeOffset;
         }
 
-        // §ó·s Mesh
+        // æ›´æ–° Mesh
         for (int i = 0; i < textInfo.meshInfo.Length; i++)
         {
             textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;

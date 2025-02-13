@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static PauseManager;
@@ -47,9 +47,12 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (!ExorcismManager.instance.onExorcismProgress)
         {
-            ToggleShow();
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                ToggleShow();
+            }
         }
     }
 
@@ -67,7 +70,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    void Show()
+    public void Show()
     {
         barCanvasGroup.alpha = 1f;
         barCanvasGroup.interactable = true;
@@ -75,7 +78,7 @@ public class InventoryUI : MonoBehaviour
         currentState = ShowState.Show;
     }
 
-    void Hide()
+    public void Hide()
     {
         barCanvasGroup.alpha = 0f;
         barCanvasGroup.interactable = false;

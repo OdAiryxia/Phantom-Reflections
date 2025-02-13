@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class RoomButton : ButtonBaseFunction
 {
-    [Header("«e©¹©Ğ¶¡½s¸¹")]
+    [Header("å‰å¾€æˆ¿é–“ç·¨è™Ÿ")]
     [SerializeField] private int roomIndex;
 
     protected override void OnMouseDown()

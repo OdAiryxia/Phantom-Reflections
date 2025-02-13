@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ public class ModalWindowTemplateTrigger : ButtonBaseFunction
     {
         if (!TestSceneManager.instance.buttonInteruption)
         {
-            currentIndex = 0; // ­«¸m¯Á¤Þ
+            currentIndex = 0; // é‡ç½®ç´¢å¼•
             ShowCurrentModal();
         }
 
@@ -37,7 +37,7 @@ public class ModalWindowTemplateTrigger : ButtonBaseFunction
             {
                 currentIndex++;
                 ModalWindowManager.instance.Close();
-                ShowCurrentModal(); // Åã¥Ü¤U¤@­Ó
+                ShowCurrentModal(); // é¡¯ç¤ºä¸‹ä¸€å€‹
             },
             currentTemplate.declineText, () =>
             {

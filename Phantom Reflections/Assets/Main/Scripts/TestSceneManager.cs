@@ -1,4 +1,4 @@
-using Flower;
+ï»¿using Flower;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,19 +39,19 @@ public class TestSceneManager : MonoBehaviour
         {
             if (_params.Count > 0)
             {
-                // ¹Á¸Õ±N°Ñ¼ÆÂà´«¬° int
+                // å˜—è©¦å°‡åƒæ•¸è½‰æ›ç‚º int
                 if (int.TryParse(_params[0], out int spriteIndex))
                 {
                     ProtagonistManager.instance.ChangeSprite(spriteIndex);
                 }
                 else
                 {
-                    Debug.LogWarning("µLªk±N°Ñ¼ÆÂà´«¬°¾ã¼Æ¡G" + _params[0]);
+                    Debug.LogWarning("ç„¡æ³•å°‡åƒæ•¸è½‰æ›ç‚ºæ•´æ•¸ï¼š" + _params[0]);
                 }
             }
             else
             {
-                Debug.LogWarning("¯Ê¤Ö°Ñ¼Æ¡I");
+                Debug.LogWarning("ç¼ºå°‘åƒæ•¸ï¼");
             }
         });
 
@@ -71,11 +71,21 @@ public class TestSceneManager : MonoBehaviour
     void LockButton(List<string> _params)
     {
         buttonInteruption = true;
+
+        if (CGManager.instance.onCg)
+        {
+            CGManager.instance.closeButton.gameObject.SetActive(false);
+        }
     }
 
     void ReleaseButton(List<string> _params)
     {
         buttonInteruption = false;
+
+        if (CGManager.instance.onCg)
+        {
+            CGManager.instance.closeButton.gameObject.SetActive(true);
+        }
     }
 
 

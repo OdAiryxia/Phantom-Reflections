@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,18 +19,18 @@ public class DraggableClue : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnBeginDrag(PointerEventData eventData)
     {
         originalParent = transform.parent;
-        transform.SetParent(originalParent.root); // Åı¥¦¤£¨ü¤÷ª«¥ó¼vÅT
-        canvasGroup.blocksRaycasts = false; // Á×§K¾×¦í Drop ¨Æ¥ó
+        transform.SetParent(originalParent.root); // è®“å®ƒä¸å—çˆ¶ç‰©ä»¶å½±éŸ¿
+        canvasGroup.blocksRaycasts = false; // é¿å…æ“‹ä½ Drop äº‹ä»¶
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.position = eventData.position; // Åı«ö¶s¸òÀH·Æ¹«
+        rectTransform.position = eventData.position; // è®“æŒ‰éˆ•è·Ÿéš¨æ»‘é¼ 
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(originalParent); // ©ì¦²µ²§ô¡A¦^¨ì­ì¥»ªº¤÷ª«¥ó
-        canvasGroup.blocksRaycasts = true; // ­«·s±Ò¥ÎÂIÀ»
+        transform.SetParent(originalParent); // æ‹–æ›³çµæŸï¼Œå›åˆ°åŸæœ¬çš„çˆ¶ç‰©ä»¶
+        canvasGroup.blocksRaycasts = true; // é‡æ–°å•Ÿç”¨é»æ“Š
     }
 }

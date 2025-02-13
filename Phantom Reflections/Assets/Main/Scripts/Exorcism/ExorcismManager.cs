@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,27 +11,27 @@ public class ExorcismManager : MonoBehaviour
 
     [SerializeField] private CanvasGroup canvasGroup;
 
-    [Header("°£ÆFÃD¥Ø")]
+    [Header("é™¤éˆé¡Œç›®")]
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private ExorcismQuestion[] questions;
     private int currentQuestionIndex = 0;
 
-    [Header("¿ï¶µ")]
+    [Header("é¸é …")]
     [SerializeField] private GameObject optionPrefab;
     [SerializeField] private RectTransform[] optionParents;
     private List<Vector2> spawnedPositions = new List<Vector2>();
 
-    [Header("½u¯Á")]
+    [Header("ç·šç´¢")]
     [SerializeField] private ScrollRect clueBar;
     [SerializeField] private GameObject cluePrefab;
     [SerializeField] private Transform clueParent;
 
-    [Header("®É¶¡")]
+    [Header("æ™‚é–“")]
     [SerializeField] private Slider timerSlider;
     [SerializeField] private TextMeshProUGUI timerText;
     private float timeRemaining = 30f;
 
-    private bool onExorcismProgress = false;
+    public bool onExorcismProgress = false;
 
     void Awake()
     {
@@ -73,6 +73,8 @@ public class ExorcismManager : MonoBehaviour
 
         questions = newQuestions;
         currentQuestionIndex = 0;
+
+        InventoryUI.instance.Hide();
 
         TextWiggleEffect timerWiggleEffect = timerText.GetComponent<TextWiggleEffect>();
         timerWiggleEffect.shakeAmount = -2f;
@@ -121,7 +123,7 @@ public class ExorcismManager : MonoBehaviour
 
             Vector2 newPoint = GetRandomPointInImage(targetParent);
 
-            // ¥i¿ï¾Ü¬O§_±Ò¥Î overlapping ÀË¬d
+            // å¯é¸æ“‡æ˜¯å¦å•Ÿç”¨ overlapping æª¢æŸ¥
             bool overlapping = true;
             float xMinSpacing = 200f;
             float yMinSpacing = 100f;
@@ -214,7 +216,7 @@ public class ExorcismManager : MonoBehaviour
             timerText.text = "" + Mathf.Round(timeRemaining);
         }
 
-        // ®Ú¾Ú³Ñ¾l®É¶¡ÅÜ´«ÃC¦â
+        // æ ¹æ“šå‰©é¤˜æ™‚é–“è®Šæ›é¡è‰²
         if (timeRemaining <= 5)
         {
             Color midColor1 = new Color(1f, 0.6f, 0.6f);
@@ -249,7 +251,7 @@ public class ExorcismManager : MonoBehaviour
     {
         if (questions[currentQuestionIndex].correctAnswerIndex == selectedAnswer)
         {
-            // µª¹ï¡A¶i¤J¤U¤@ÃD
+            // ç­”å°ï¼Œé€²å…¥ä¸‹ä¸€é¡Œ
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.Length)
             {
@@ -257,7 +259,7 @@ public class ExorcismManager : MonoBehaviour
             }
             else
             {
-                EndGame(true); // ³qÃö
+                StartCoroutine(EndGame(true)); // é€šé—œ
             }
         }
         else
@@ -269,14 +271,13 @@ public class ExorcismManager : MonoBehaviour
                 timeRemaining = 0;
                 timerText.text = "0";
                 timerSlider.value = 0;
-                EndGame(false);
+                StartCoroutine(EndGame(false));
             }
         }
     }
 
-    void EndGame(bool won)
+    IEnumerator EndGame(bool won)
     {
-        onExorcismProgress = false;
 
         clueBar.enabled = false;
 
@@ -340,9 +341,6 @@ public class ExorcismManager : MonoBehaviour
             effect.shakeAmount = initialShake;
         }
 
-        StartCoroutine(BlackScreenManager.instance.Transition(canvasGroup));
-        TestSceneManager.instance.buttonInteruption = false;
-
         if (won)
         {
             Debug.Log("You won!");
@@ -351,5 +349,9 @@ public class ExorcismManager : MonoBehaviour
         {
             Debug.Log("Game over!");
         }
+
+        yield return StartCoroutine(BlackScreenManager.instance.Transition(canvasGroup));
+        onExorcismProgress = false;
+        TestSceneManager.instance.buttonInteruption = false;
     }
 }

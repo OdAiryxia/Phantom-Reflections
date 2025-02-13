@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEditor;
 
 [CreateAssetMenu(fileName = "New Question", menuName = "Exorcism/Question")]
@@ -23,23 +23,23 @@ public class AnswersDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        // ³]¸m¨C­Ó¤¸¯Àªº°ª«×
+        // è¨­ç½®æ¯å€‹å…ƒç´ çš„é«˜åº¦
         float lineHeight = EditorGUIUtility.singleLineHeight;
-        float space = 2f;  // ¶µ¥Ø¶¡ªº¶¡¹j
+        float space = 2f;  // é …ç›®é–“çš„é–“éš”
 
-        // ³]¸m¤lÄİ©Ê
+        // è¨­ç½®å­å±¬æ€§
         SerializedProperty answer = property.FindPropertyRelative("answer");
         SerializedProperty id = property.FindPropertyRelative("id");
         SerializedProperty newAnswer = property.FindPropertyRelative("newAnswer");
 
-        // Åã¥Ü 'answer' ©M 'id' Äİ©Ê
+        // é¡¯ç¤º 'answer' å’Œ 'id' å±¬æ€§
         Rect answerRect = new Rect(position.x, position.y, position.width, lineHeight);
         EditorGUI.PropertyField(answerRect, answer);
 
         Rect idRect = new Rect(position.x, position.y + lineHeight + space, position.width, lineHeight);
         EditorGUI.PropertyField(idRect, id);
 
-        // ¦pªG 'id' ¤£¬°ªÅ¡AÅã¥Ü 'newAnswer' Äİ©Ê
+        // å¦‚æœ 'id' ä¸ç‚ºç©ºï¼Œé¡¯ç¤º 'newAnswer' å±¬æ€§
         if (!string.IsNullOrEmpty(id.stringValue))
         {
             Rect newAnswerRect = new Rect(position.x, position.y + (lineHeight + space) * 2, position.width, lineHeight);
@@ -49,13 +49,13 @@ public class AnswersDrawer : PropertyDrawer
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        // ­pºâ¾ã­ÓÄİ©Êªº°ª«×
+        // è¨ˆç®—æ•´å€‹å±¬æ€§çš„é«˜åº¦
         SerializedProperty id = property.FindPropertyRelative("id");
-        float height = EditorGUIUtility.singleLineHeight * 2 + 2f; // ¦Ü¤ÖÅã¥Ü answer ©M id
+        float height = EditorGUIUtility.singleLineHeight * 2 + 2f; // è‡³å°‘é¡¯ç¤º answer å’Œ id
 
         if (!string.IsNullOrEmpty(id.stringValue))
         {
-            height += EditorGUIUtility.singleLineHeight + 2f; // ¦pªG¦³ newAnswer¡AÃB¥~¼W¥[¨ä°ª«×
+            height += EditorGUIUtility.singleLineHeight + 2f; // å¦‚æœæœ‰ newAnswerï¼Œé¡å¤–å¢åŠ å…¶é«˜åº¦
         }
 
         return height;

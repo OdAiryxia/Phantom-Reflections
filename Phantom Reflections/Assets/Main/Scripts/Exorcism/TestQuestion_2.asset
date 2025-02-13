@@ -1,32 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9679a6cc2fb80cf448f1e75e052e0b84, type: 3}
-  m_Name: TestQuestion_2
-  m_EditorClassIdentifier: 
-  questionText: "\u7136\u5F8C\u6211\u8AAA:\n\u64CD\u4F60\u5ABD\u6A5F\u63B0!!!"
-  answers:
-  - answer: "\u64CD\u8AB0?"
-    id: 
-    newAnswer: 
-  - answer: "\u4F60\u4ED6\u5ABD\u5565"
-    id: 
-    newAnswer: 
-  - answer: "\u4F60\u5C0D\u6211\u7684\u5ABD\u5ABD"
-    id: 
-    newAnswer: 
-  - answer: "\u563F\u563F\u310B\u311F\u310B\u311F\u597D\u8B9A"
-    id: test_hint_2
-    newAnswer: "\u563F\u563F\u563F\u563F\u723D"
-  - answer: "\u8766?"
-    id: 
-    newAnswer: 
-  correctAnswerIndex: 3
+version https://git-lfs.github.com/spec/v1
+oid sha256:ea691f1773ee2f777213bc881ed46242b2007803a2441f5269868e43f8ff77cb
+size 888

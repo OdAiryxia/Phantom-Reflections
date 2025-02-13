@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -30,8 +30,17 @@ public class ButtonBaseFunction : MonoBehaviour
             if (tagText != null)
             {
                 tagOriginalColor = tagText.color;
-                tagText.color = new Color(tagOriginalColor.r, tagOriginalColor.g, tagOriginalColor.b, 0f); // ªì©l³z©ú
+                tagText.color = new Color(tagOriginalColor.r, tagOriginalColor.g, tagOriginalColor.b, 0f); // åˆå§‹é€æ˜
             }
+        }
+    }
+
+    void Update()
+    {
+        if (tagText != null)
+        {
+            Vector3 direction = tagText.transform.position - Camera.main.transform.position;
+            tagText.transform.rotation = Quaternion.LookRotation(direction);
         }
     }
 
@@ -39,7 +48,7 @@ public class ButtonBaseFunction : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            // °±¤î¤§«eªº Coroutine¡]¦pªG¦³¡^
+            // åœæ­¢ä¹‹å‰çš„ Coroutineï¼ˆå¦‚æœæœ‰ï¼‰
             if (colorCoroutine != null)
             {
                 StopCoroutine(colorCoroutine);
@@ -63,7 +72,7 @@ public class ButtonBaseFunction : MonoBehaviour
         {
             if (spriteRenderer != null)
             {
-                // °±¤î¤§«eªº Coroutine¡]¦pªG¦³¡^
+                // åœæ­¢ä¹‹å‰çš„ Coroutineï¼ˆå¦‚æœæœ‰ï¼‰
                 if (colorCoroutine != null)
                 {
                     StopCoroutine(colorCoroutine);
@@ -88,7 +97,7 @@ public class ButtonBaseFunction : MonoBehaviour
         {
             if (spriteRenderer != null)
             {
-                // °±¤î¤§«eªº Coroutine¡]¦pªG¦³¡^
+                // åœæ­¢ä¹‹å‰çš„ Coroutineï¼ˆå¦‚æœæœ‰ï¼‰
                 if (colorCoroutine != null)
                 {
                     StopCoroutine(colorCoroutine);
@@ -119,7 +128,7 @@ public class ButtonBaseFunction : MonoBehaviour
             yield return null;
         }
 
-        // ½T«O³Ì«áÃC¦â§¹¥ş¨ì¹F¥Ø¼Ğ
+        // ç¢ºä¿æœ€å¾Œé¡è‰²å®Œå…¨åˆ°é”ç›®æ¨™
         spriteRenderer.color = targetColor;
     }
 

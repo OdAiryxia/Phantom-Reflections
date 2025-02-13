@@ -931,6 +931,7 @@ MonoBehaviour:
   clueParent: {fileID: 329201969}
   timerSlider: {fileID: 1212216009}
   timerText: {fileID: 1609952756}
+  onExorcismProgress: 0
 --- !u!1 &211698299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,7 +3098,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 10
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 32
@@ -5792,7 +5793,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2683012586331287828}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999029
+  m_Size: 0.9999901
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7572,7 +7573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2.5, y: -449.913}
+  m_AnchoredPosition: {x: -2.5, y: -449.99908}
   m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6125684400534657631
@@ -7739,7 +7740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.12452829, g: 0.12452829, b: 0.12452829, a: 0.77254903}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

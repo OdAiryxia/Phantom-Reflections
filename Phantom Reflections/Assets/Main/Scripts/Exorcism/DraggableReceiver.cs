@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class DraggableReceiver : MonoBehaviour, IDropHandler
 {
-    [Header("½u¯ÁID")]
+    [Header("ç·šç´¢ID")]
     public string id;
     public string newAnswer;
     public void OnDrop(PointerEventData eventData)
@@ -19,7 +19,7 @@ public class DraggableReceiver : MonoBehaviour, IDropHandler
             if (draggedClue != null && (id == inventoryItemSlot.id))
             {
                 Destroy(draggedClue.gameObject);
-                Debug.Log("«ö¶s " + draggedClue.name + " ³Q©ì©ñ¨ì " + gameObject.name);
+                Debug.Log("æŒ‰éˆ• " + draggedClue.name + " è¢«æ‹–æ”¾åˆ° " + gameObject.name);
 
                 if (newAnswer != null)    
                 {

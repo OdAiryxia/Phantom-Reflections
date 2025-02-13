@@ -1,0 +1,5 @@
+﻿[LockButton]
+[show]
+這裡怎麼藏了一面鏡子?[w]
+[hide]
+[ReleaseButton]
