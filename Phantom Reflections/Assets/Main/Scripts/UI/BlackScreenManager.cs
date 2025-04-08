@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -69,6 +70,12 @@ public class BlackScreenManager : MonoBehaviour
 
         yield return StartCoroutine(FadeIn());
         yield return new WaitForSeconds(0.2f);
+
+        if (ExorcismManager.instance.events != null)
+        {
+            ExorcismManager.instance.events.Invoke();
+            ExorcismManager.instance.events = null;
+        }
 
         canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;

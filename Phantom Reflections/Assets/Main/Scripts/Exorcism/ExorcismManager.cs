@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Rendering.PostProcessing;
@@ -14,6 +15,8 @@ public class ExorcismManager : MonoBehaviour
     public ExorcismQuestion[] activeQuestions; // 複製用
     public int currentQuestionIndex = 0;
     public bool onExorcismProgress = false;
+    public UnityEvent events;
+    [SerializeField] private TextMeshProUGUI title;
 
     [Header("除靈題目")]
     [SerializeField] private CanvasGroup canvasGroup;
@@ -93,6 +96,8 @@ public class ExorcismManager : MonoBehaviour
         clueBar.enabled = true;
         timeRemaining = 30f;
         timerText.color = Color.white;
+
+        title.text = "除靈";
 
         currentQuestionIndex = 0;
 
@@ -393,12 +398,12 @@ public class ExorcismManager : MonoBehaviour
 
         if (won)
         {
-            Debug.Log("You won!");
+            title.text = "成功";
         }
         else
         {
             EnableOverlayStage();
-            Debug.Log("Game over!");
+            title.text = "失敗";
         }
 
         yield return StartCoroutine(BlackScreenManager.instance.Transition(canvasGroup));

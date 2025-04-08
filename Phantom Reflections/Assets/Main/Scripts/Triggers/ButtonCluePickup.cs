@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
@@ -27,6 +28,7 @@ public class ButtonCluePickup : ButtonBaseFunction
     [Header("除靈")]
     [SerializeField] private bool 觸發除靈;
     [SerializeField] private ExorcismQuestion[] 除靈題目;
+    [SerializeField] private UnityEvent events;
 
     protected override void Start()
     {
@@ -99,6 +101,10 @@ public class ButtonCluePickup : ButtonBaseFunction
                 if (string.IsNullOrEmpty(故事) && !觸發彈出視窗)
                 {
                     ExorcismManager.instance.SetQuestion();
+                    if (events != null)
+                    {
+                        ExorcismManager.instance.events = events;
+                    }
                 }
             }
         }
@@ -127,6 +133,10 @@ public class ButtonCluePickup : ButtonBaseFunction
                 if (觸發除靈 && string.IsNullOrEmpty(故事))
                 {
                     ExorcismManager.instance.SetQuestion();
+                    if (events != null)
+                    {
+                        ExorcismManager.instance.events = events;
+                    }
                 }
             },
             currentTemplate.declineText, () =>
@@ -142,6 +152,10 @@ public class ButtonCluePickup : ButtonBaseFunction
                 if (觸發除靈 && string.IsNullOrEmpty(故事))
                 {
                     ExorcismManager.instance.SetQuestion();
+                    if (events != null)
+                    {
+                        ExorcismManager.instance.events = events;
+                    }
                 }
             },
             currentTemplate.alternateText, () =>
@@ -157,6 +171,10 @@ public class ButtonCluePickup : ButtonBaseFunction
                 if (觸發除靈 && string.IsNullOrEmpty(故事))
                 {
                     ExorcismManager.instance.SetQuestion();
+                    if (events != null)
+                    {
+                        ExorcismManager.instance.events = events;
+                    }
                 }
             }
         );
