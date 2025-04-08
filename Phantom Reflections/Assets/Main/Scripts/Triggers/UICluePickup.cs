@@ -161,6 +161,7 @@ public class UICluePickup : MonoBehaviour
         );
     }
 
+#if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
         // 畫出白色線條連接到顯示其他物件
@@ -191,7 +192,6 @@ public class UICluePickup : MonoBehaviour
             }
         }
 
-#if UNITY_EDITOR
         // 顯示文字標籤
         Vector3 labelOffset = new Vector3(3f, 1f, 0); // 在物件旁邊右上方一點
         Vector3 labelPos = transform.position + labelOffset;
@@ -220,6 +220,6 @@ public class UICluePickup : MonoBehaviour
 
         labelText += $"\n摧毀自己：{(摧毀此物件 ? "是" : "否")}";
         Handles.Label(labelPos, labelText);
-#endif
     }
+#endif
 }
