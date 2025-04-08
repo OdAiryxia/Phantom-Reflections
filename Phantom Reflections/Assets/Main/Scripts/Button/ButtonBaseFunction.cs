@@ -17,6 +17,13 @@ public class ButtonBaseFunction : MonoBehaviour
 
     protected virtual void Start()
     {
+        PolygonCollider2D poly = GetComponent<PolygonCollider2D>();
+        if (poly != null)
+        {
+            Destroy(poly);
+        }
+        gameObject.AddComponent<PolygonCollider2D>();
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
@@ -68,7 +75,7 @@ public class ButtonBaseFunction : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (!TestSceneManager.instance.buttonInteruption)
+        if (!ProgressManager.instance.buttonInteruption)
         {
             if (spriteRenderer != null)
             {
@@ -93,7 +100,7 @@ public class ButtonBaseFunction : MonoBehaviour
 
     void OnMouseExit()
     {
-        if (!TestSceneManager.instance.buttonInteruption)
+        if (!ProgressManager.instance.buttonInteruption)
         {
             if (spriteRenderer != null)
             {

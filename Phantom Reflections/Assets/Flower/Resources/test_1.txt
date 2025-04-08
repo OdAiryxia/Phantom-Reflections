@@ -1,0 +1,7 @@
+﻿[LockButton]
+[show]
+[ProtagonistSprite,0]
+終章[l]測試[w]
+[c]
+[hide]
+[ReleaseButton]

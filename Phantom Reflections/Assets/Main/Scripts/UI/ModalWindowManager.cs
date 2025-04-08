@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
@@ -62,7 +62,7 @@ public class ModalWindowManager : MonoBehaviour
     {
         panel.gameObject.SetActive(false);
         modalWindow.gameObject.SetActive(false);
-        TestSceneManager.instance.buttonInteruption = false;
+        ProgressManager.instance.buttonInteruption = false;
     }
 
     public void ShowVertical(string title, Sprite image, string content, string confirmText, Action confirmAction, string declineText = null, Action declineAction = null, string alternateText = null, Action alternateAction = null)
@@ -76,12 +76,12 @@ public class ModalWindowManager : MonoBehaviour
         declineButton.onClick.RemoveAllListeners();
         alternateButton.onClick.RemoveAllListeners();
 
-        // ³]¸m¼ĞÃD°Ï°ì
+        // è¨­ç½®æ¨™é¡Œå€åŸŸ
         bool hasTitle = !string.IsNullOrEmpty(title);
         headerArea.gameObject.SetActive(hasTitle);
         headerTitle.text = title;
 
-        // ³]¸m¹Ï¤ù
+        // è¨­ç½®åœ–ç‰‡
         bool hasImage = (image != null);
         verticalImage.gameObject.SetActive(hasImage);
         if (hasImage)
@@ -93,15 +93,15 @@ public class ModalWindowManager : MonoBehaviour
             verticalImage.sprite = null;
         }
 
-        // ³]¸m¤º®e¤å¦r
+        // è¨­ç½®å…§å®¹æ–‡å­—
         verticalContent.text = content;
 
-        // ³]¸m½T»{«ö¶s
+        // è¨­ç½®ç¢ºèªæŒ‰éˆ•
         confirmButton.gameObject.SetActive(true);
         confirmButtonText.text = confirmText;
         confirmButton.onClick.AddListener(new UnityAction(confirmAction));
 
-        // ³]¸m©Úµ´«ö¶s
+        // è¨­ç½®æ‹’çµ•æŒ‰éˆ•
         bool hasDecline = !string.IsNullOrEmpty(declineText);
         declineButton.gameObject.SetActive(hasDecline);
         if (hasDecline)
@@ -113,7 +113,7 @@ public class ModalWindowManager : MonoBehaviour
             declineButton.onClick.AddListener(new UnityAction(declineAction));
         }
 
-        // ³]¸m³Æ¿ï«ö¶s
+        // è¨­ç½®å‚™é¸æŒ‰éˆ•
         bool hasAlternate = !string.IsNullOrEmpty(alternateText);
         alternateButton.gameObject.SetActive(hasAlternate);
         if (hasAlternate)
@@ -125,7 +125,7 @@ public class ModalWindowManager : MonoBehaviour
             alternateButton.onClick.AddListener(new UnityAction(alternateAction));
         }
 
-        TestSceneManager.instance.buttonInteruption = true;
+        ProgressManager.instance.buttonInteruption = true;
         StartCoroutine(DelayedShow());
     }
 
@@ -139,12 +139,12 @@ public class ModalWindowManager : MonoBehaviour
         declineButton.onClick.RemoveAllListeners();
         alternateButton.onClick.RemoveAllListeners();
 
-        // ³]¸m¼ĞÃD°Ï°ì
+        // è¨­ç½®æ¨™é¡Œå€åŸŸ
         bool hasTitle = !string.IsNullOrEmpty(title);
         headerArea.gameObject.SetActive(hasTitle);
         headerTitle.text = title;
 
-        // ³]¸m¹Ï¤ù
+        // è¨­ç½®åœ–ç‰‡
         bool hasImage = (image != null);
         horizontalImage.gameObject.SetActive(hasImage);
         if (hasImage)
@@ -156,15 +156,15 @@ public class ModalWindowManager : MonoBehaviour
             horizontalImage.sprite = null;
         }
 
-        // ³]¸m¤º®e¤å¦r
+        // è¨­ç½®å…§å®¹æ–‡å­—
         horizontalContent.text = content;
 
-        // ³]¸m½T»{«ö¶s
+        // è¨­ç½®ç¢ºèªæŒ‰éˆ•
         confirmButton.gameObject.SetActive(true);
         confirmButtonText.text = confirmText;
         confirmButton.onClick.AddListener(new UnityAction(confirmAction));
 
-        // ³]¸m©Úµ´«ö¶s
+        // è¨­ç½®æ‹’çµ•æŒ‰éˆ•
         bool hasDecline = !string.IsNullOrEmpty(declineText);
         declineButton.gameObject.SetActive(hasDecline);
         if (hasDecline)
@@ -176,7 +176,7 @@ public class ModalWindowManager : MonoBehaviour
             declineButton.onClick.AddListener(new UnityAction(declineAction));
         }
 
-        // ³]¸m³Æ¿ï«ö¶s
+        // è¨­ç½®å‚™é¸æŒ‰éˆ•
         bool hasAlternate = !string.IsNullOrEmpty(alternateText);
         alternateButton.gameObject.SetActive(hasAlternate);
         if (hasAlternate)
@@ -188,13 +188,13 @@ public class ModalWindowManager : MonoBehaviour
             alternateButton.onClick.AddListener(new UnityAction(alternateAction));
         }
 
-        TestSceneManager.instance.buttonInteruption = true;
+        ProgressManager.instance.buttonInteruption = true;
         StartCoroutine(DelayedShow());
     }
 
     private IEnumerator DelayedShow()
     {
-        yield return null; // µ¥«İ¤@´V
+        yield return null; // ç­‰å¾…ä¸€å¹€
 
         LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)modalWindow);
         LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)horizontalLayoutArea);

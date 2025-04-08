@@ -8,9 +8,12 @@ public class CGTrigger : ButtonBaseFunction
 
     protected override void OnMouseDown()
     {
-        if (cg != null)
+        if (!ProgressManager.instance.buttonInteruption)
         {
-            CGManager.instance.OpenCG(cg);
+            if (cg != null)
+            {
+                CGManager.instance.OpenCG(cg);
+            }
         }
 
         base.OnMouseDown();

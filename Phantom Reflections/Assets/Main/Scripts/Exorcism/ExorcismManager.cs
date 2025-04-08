@@ -3,35 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.Rendering.PostProcessing;
 
 public class ExorcismManager : MonoBehaviour
 {
     public static ExorcismManager instance;
 
-    [SerializeField] private CanvasGroup canvasGroup;
+    [Header("題庫與狀態")]
+    public ExorcismQuestion[] questions;
+    public ExorcismQuestion[] activeQuestions; // 複製用
+    public int currentQuestionIndex = 0;
+    public bool onExorcismProgress = false;
 
     [Header("除靈題目")]
+    [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private TextMeshProUGUI questionText;
-    [SerializeField] private ExorcismQuestion[] questions;
-    private int currentQuestionIndex = 0;
-
-    [Header("選項")]
     [SerializeField] private GameObject optionPrefab;
     [SerializeField] private RectTransform[] optionParents;
-    private List<Vector2> spawnedPositions = new List<Vector2>();
 
     [Header("線索")]
     [SerializeField] private ScrollRect clueBar;
     [SerializeField] private GameObject cluePrefab;
     [SerializeField] private Transform clueParent;
 
-    [Header("時間")]
+    [Header("計時器")]
     [SerializeField] private Slider timerSlider;
     [SerializeField] private TextMeshProUGUI timerText;
     private float timeRemaining = 30f;
 
-    public bool onExorcismProgress = false;
+    [Header("Overlay效果")]
+    [SerializeField] private Sprite[] stage_one;
+    [SerializeField] private Sprite[] stage_two;
+    [SerializeField] private Sprite[] stage_three;
+    [Space(5)]
+    [SerializeField] private Image stage_one_image;
+    [SerializeField] private Image stage_two_image;
+    [SerializeField] private Image stage_three_image;
+    [SerializeField] private CanvasGroup vignette;
+    [SerializeField] private PostProcessVolume postProcessing;
+    [Space(5)]
+    public int overlayStage = 0;
+
+    private bool isEnding = false;
+
+    private List<Vector2> spawnedPositions = new List<Vector2>();
 
     void Awake()
     {
@@ -47,6 +62,12 @@ public class ExorcismManager : MonoBehaviour
         canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
+
+        stage_one_image.enabled = false;
+        stage_two_image.enabled = false;
+        stage_three_image.enabled = false;
+        vignette.alpha = 0f;
+        postProcessing.weight = 0f;
     }
 
     void Update()
@@ -57,24 +78,23 @@ public class ExorcismManager : MonoBehaviour
         }
     }
 
-    public void SetQuestion(ExorcismQuestion[] newQuestions)
+    public void SetQuestion()
     {
-        TestSceneManager.instance.buttonInteruption = true;
+        ProgressManager.instance.buttonInteruption = true;
+        InventoryUI.instance.Hide();
 
+
+        isEnding = false;
         canvasGroup.alpha = 1f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
 
         onExorcismProgress = true;
         clueBar.enabled = true;
-
         timeRemaining = 30f;
         timerText.color = Color.white;
 
-        questions = newQuestions;
         currentQuestionIndex = 0;
-
-        InventoryUI.instance.Hide();
 
         TextWiggleEffect timerWiggleEffect = timerText.GetComponent<TextWiggleEffect>();
         timerWiggleEffect.shakeAmount = -2f;
@@ -84,6 +104,30 @@ public class ExorcismManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        activeQuestions = new ExorcismQuestion[questions.Length];
+        for (int i = 0; i < questions.Length; i++)
+        {
+            ExorcismQuestion source = questions[i];
+            ExorcismQuestion copy = ScriptableObject.CreateInstance<ExorcismQuestion>();
+            copy.questionText = source.questionText;
+
+            answers[] copiedAnswers = new answers[source.answers.Length];
+            for (int j = 0; j < copiedAnswers.Length; j++)
+            {
+                answers src = source.answers[j];
+                copiedAnswers[j] = new answers
+                {
+                    answer = src.answer,
+                    id = src.id,
+                    newAnswer = src.newAnswer,
+                    isCorrect = src.isCorrect,
+                };
+            }
+            copy.answers = copiedAnswers;
+            activeQuestions[i] = copy;
+        }
+
 
         foreach (InventoryClue clue in InventoryManager.instance.inventory)
         {
@@ -99,7 +143,7 @@ public class ExorcismManager : MonoBehaviour
 
     void DisplayQuestion()
     {
-        ExorcismQuestion currentQuestion = questions[currentQuestionIndex];
+        ExorcismQuestion currentQuestion = activeQuestions[currentQuestionIndex];
         questionText.text = currentQuestion.questionText;
 
         timeRemaining = 30f;
@@ -168,6 +212,7 @@ public class ExorcismManager : MonoBehaviour
             if (textComponent != null)
             {
                 textComponent.text = currentQuestion.answers[index].answer;
+                textComponent.color = Color.white;
             }
 
             DraggableReceiver draggableReceiver = newPrefab.GetComponent<DraggableReceiver>();
@@ -201,6 +246,7 @@ public class ExorcismManager : MonoBehaviour
             floatingText.rotateSpeed += Random.Range(-0.3f, 0.3f);
         }
     }
+
     void UpdateTimer()
     {
         if (timeRemaining > 0)
@@ -241,19 +287,21 @@ public class ExorcismManager : MonoBehaviour
             timerText.color = Color.white;
         }
 
-        if (timeRemaining == 0)
+        if (timeRemaining <= 0)
         {
-            EndGame(false);
+            StartCoroutine(EndGame(false));
         }
     }
 
     void CheckAnswer(int selectedAnswer)
     {
-        if (questions[currentQuestionIndex].correctAnswerIndex == selectedAnswer)
+        ExorcismQuestion currentQuestion = activeQuestions[currentQuestionIndex];
+        answers selected = currentQuestion.answers[selectedAnswer];
+
+        if (selected.isCorrect)
         {
-            // 答對，進入下一題
             currentQuestionIndex++;
-            if (currentQuestionIndex < questions.Length)
+            if (currentQuestionIndex < activeQuestions.Length)
             {
                 DisplayQuestion();
             }
@@ -278,6 +326,8 @@ public class ExorcismManager : MonoBehaviour
 
     IEnumerator EndGame(bool won)
     {
+        if (isEnding) yield break; // 若已經在結束流程中，就跳出
+        isEnding = true;           // 設定正在結束狀態
 
         clueBar.enabled = false;
 
@@ -347,11 +397,60 @@ public class ExorcismManager : MonoBehaviour
         }
         else
         {
+            EnableOverlayStage();
             Debug.Log("Game over!");
         }
 
         yield return StartCoroutine(BlackScreenManager.instance.Transition(canvasGroup));
         onExorcismProgress = false;
-        TestSceneManager.instance.buttonInteruption = false;
+        ProgressManager.instance.buttonInteruption = false;
     }
+
+    #region Overlay
+    public void EnableOverlayStage()
+    {
+        switch (overlayStage)
+        {
+            case 0:
+                stage_one_image.enabled = true;
+                StartCoroutine(OverlayLoop(stage_one, stage_one_image));
+                vignette.alpha = 0.25f;
+                postProcessing.weight = 0.1f;
+                break;
+            case 1:
+                stage_two_image.enabled = true;
+                StartCoroutine(OverlayLoop(stage_two, stage_two_image));
+                vignette.alpha = 0.5f;
+                postProcessing.weight = 0.25f;
+                break;
+            case 2:
+                stage_three_image.enabled = true;
+                StartCoroutine(OverlayLoop(stage_three, stage_three_image));
+                vignette.alpha = 1f;
+                postProcessing.weight = 1f;
+                break;
+            default:
+                break;
+        }
+
+        overlayStage++;
+    }
+
+    IEnumerator OverlayLoop(Sprite[] sprites, Image image)
+    {
+        List<int> order = new List<int>();
+
+        for (int i = 0; i < sprites.Length; i++) order.Add(i);
+        for (int i = sprites.Length - 2; i > 0; i--) order.Add(i);
+
+        int index = 0;
+
+        while (true)
+        {
+            image.sprite = sprites[order[index]];
+            index = (index + 1) % order.Count;
+            yield return new WaitForSeconds(Random.Range(0.16f,0.20f));
+        }
+    }
+    #endregion
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,10 +43,9 @@ public class CGManager : MonoBehaviour
     public void OpenCG(GameObject cg)
     {
         onCg = true;
+
         currentCg = cg;
-
         closeButton.gameObject.SetActive(true);
-
         cgButtons = new List<Button>();
         foreach (Button button in currentCg.GetComponentsInChildren<Button>())
         {
@@ -54,18 +53,16 @@ public class CGManager : MonoBehaviour
         }
 
         currentCg.SetActive(true);
-        TestSceneManager.instance.buttonInteruption = true;
+        ProgressManager.instance.buttonInteruption = true;
     }
 
     public void CloseCG()
     {
         onCg = false;
 
-        closeButton.gameObject.SetActive(false);
-
-        currentCg.SetActive(false);
-        TestSceneManager.instance.buttonInteruption = false;
-        currentCg = null;
         cgButtons.Clear();
+        currentCg.SetActive(false);
+        closeButton.gameObject.SetActive(false);
+        ProgressManager.instance.buttonInteruption = false;
     }
 }

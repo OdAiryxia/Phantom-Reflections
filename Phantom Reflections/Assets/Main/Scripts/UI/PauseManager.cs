@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
@@ -76,5 +77,15 @@ public class PauseManager : MonoBehaviour
         pauseMenuUI?.SetActive(true);
         Time.timeScale = 0f;
         currentState = GameState.Paused;
+    }
+
+    public void BackTitleScreen()
+    {
+        ScenesManager.instance.LoadMenu();
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
     }
 }

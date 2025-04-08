@@ -10,7 +10,7 @@ public class ModalWindowTemplateTrigger : ButtonBaseFunction
 
     protected override void OnMouseDown()
     {
-        if (!TestSceneManager.instance.buttonInteruption)
+        if (!ProgressManager.instance.buttonInteruption)
         {
             currentIndex = 0; // 重置索引
             ShowCurrentModal();

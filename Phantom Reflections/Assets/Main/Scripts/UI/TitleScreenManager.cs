@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 public class TitleScreenManager : MonoBehaviour
 {
     [SerializeField] private Button startButton;
+    [SerializeField] private Button exitButton;
     [SerializeField] private Image vignette;
     private float alpha;
 
     void Awake()
     {
         startButton.onClick.AddListener(OnStartButtonClicked);
+        exitButton.onClick.AddListener(OnExitButtonClicked);
 
         alpha = vignette.color.a;
 
@@ -20,7 +22,11 @@ public class TitleScreenManager : MonoBehaviour
         Color startColor = vignette.color;
         startColor.a = 1;
         vignette.color = startColor;
+    }
 
+    private void Start()
+    {
+        StopAllCoroutines();
         StartCoroutine(FadeIn());
     }
 
@@ -31,9 +37,12 @@ public class TitleScreenManager : MonoBehaviour
     }
     private void OnStartButtonClicked()
     {
-        SceneManager.LoadSceneAsync((int)SceneIndexes.UI);
-        SceneManager.LoadSceneAsync((int)SceneIndexes.SampleScene);
-        SceneManager.UnloadSceneAsync((int)SceneIndexes.TitleScreen);
+        ScenesManager.instance.LoadScene();
+    }
+
+    private void OnExitButtonClicked()
+    {
+        Application.Quit();
     }
 
     IEnumerator FadeIn()
@@ -54,7 +63,7 @@ public class TitleScreenManager : MonoBehaviour
             yield return null;
         }
 
-        // �T�O�̲׼ƭȥ��T
+        // 確保最終數值正確
         vignette.transform.localScale = Vector3.one;
         Color finalColor = vignette.color;
         finalColor.a = alpha;

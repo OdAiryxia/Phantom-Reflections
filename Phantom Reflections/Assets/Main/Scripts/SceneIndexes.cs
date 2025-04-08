@@ -1,6 +1,7 @@
-public enum SceneIndexes
+﻿public enum SceneIndexes
 {
-    TitleScreen = 0,
-    UI = 1,
-    SampleScene = 2
+    Empty = 0,
+    SampleScene = 1,
+    TitleScreen = 2,
+    UI = 3
 }

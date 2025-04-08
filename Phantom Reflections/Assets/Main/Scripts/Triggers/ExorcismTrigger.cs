@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,9 +8,10 @@ public class ExorcismTrigger : ButtonBaseFunction
 
     protected override void OnMouseDown()
     {
-        if (!TestSceneManager.instance.buttonInteruption)
+        if (!ProgressManager.instance.buttonInteruption)
         {
-            ExorcismManager.instance.SetQuestion(question);
+            ExorcismManager.instance.questions = question;
+            ExorcismManager.instance.SetQuestion();
         }
 
         base.OnMouseDown();

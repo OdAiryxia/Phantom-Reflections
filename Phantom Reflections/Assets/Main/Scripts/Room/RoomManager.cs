@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using TMPro;
 
 [System.Serializable]
 public class RoomData
 {
-    public string roomName;             //©Ð¶¡¦WºÙ
-    public GameObject roomObject;       //©Ð¶¡ª«¥ó¡A¥Î©ó¦s©ñ«ö¶s
+    public string roomName;             //æˆ¿é–“åç¨±
+    public GameObject roomObject;       //æˆ¿é–“ç‰©ä»¶ï¼Œç”¨æ–¼å­˜æ”¾æŒ‰éˆ•
     public Vector2 position
     {
         get
@@ -19,13 +19,13 @@ public class RoomData
 public class RoomManager : MonoBehaviour
 {
     public static RoomManager instance;
-    public RoomData[] rooms;                //©Ð¶¡¼Æ¾Ú¦Cªí
+    public RoomData[] rooms;                //æˆ¿é–“æ•¸æ“šåˆ—è¡¨
 
-    private Camera mainCamera;              //¥DÄá¼v¾÷
-    private float cameraLerpSpeed = 5f;     //Äá¼v¾÷²¾°Ê³t«×
-    private Vector3 cameraTargetPosition;   //Äá¼v¾÷¥Ø¼Ð¦ì¸m
+    public Camera mainCamera;              //ä¸»æ”å½±æ©Ÿ
+    private float cameraLerpSpeed = 5f;     //æ”å½±æ©Ÿç§»å‹•é€Ÿåº¦
+    private Vector3 cameraTargetPosition;   //æ”å½±æ©Ÿç›®æ¨™ä½ç½®
 
-    public TextMeshPro roomNameText;        //¥Î©óÅã¥Ü©Ð¶¡¦WºÙªº UI
+    public TextMeshPro roomNameText;        //ç”¨æ–¼é¡¯ç¤ºæˆ¿é–“åç¨±çš„ UI
 
     void Awake()
     {
@@ -40,13 +40,11 @@ public class RoomManager : MonoBehaviour
     }
     void Start()
     {
-        mainCamera = Camera.main;
-
         if (rooms != null && rooms.Length > 1)
         {
             cameraTargetPosition = new Vector3(rooms[1].position.x, rooms[1].position.y, mainCamera.transform.position.z);
         }
-        UpdateRoomNameUI(1);
+        MoveToRoom(6);
     }
 
     void Update()
@@ -65,11 +63,11 @@ public class RoomManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("µL®Äªº©Ð¶¡¯Á¤Þ");
+            Debug.LogWarning("ç„¡æ•ˆçš„æˆ¿é–“ç´¢å¼•");
         }
     }
 
-    //§ó·s©Ð¶¡¦WºÙ
+    //æ›´æ–°æˆ¿é–“åç¨±
     void UpdateRoomNameUI(int roomIndex)
     {
         if (roomIndex >= 0 && roomIndex < rooms.Length)

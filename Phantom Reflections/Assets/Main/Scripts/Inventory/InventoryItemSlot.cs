@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -35,7 +35,7 @@ public class InventoryItemSlot : MonoBehaviour
 
     public void OnClueButtonClicked()
     {
-        if (!TestSceneManager.instance.buttonInteruption || InventoryUI.instance.onInventoryInspector)
+        if (!ProgressManager.instance.buttonInteruption || InventoryUI.instance.onInventoryInspector)
         {
             InventoryUI.instance.ShowClueDetails(inventoryClue.clueData.sprite, inventoryClue.clueData.clueName, inventoryClue.clueData.description);
 
@@ -43,7 +43,7 @@ public class InventoryItemSlot : MonoBehaviour
             PauseManager.instance.pauseButton.onClick.AddListener(InventoryUI.instance.HideClueDetails);
             PauseManager.instance.pauseButton.image.sprite = PauseManager.instance.exitImage;
 
-            TestSceneManager.instance.buttonInteruption = true;
+            ProgressManager.instance.buttonInteruption = true;
             InventoryUI.instance.onInventoryInspector = true;
             Time.timeScale = 0; Time.timeScale = 0f;
         }

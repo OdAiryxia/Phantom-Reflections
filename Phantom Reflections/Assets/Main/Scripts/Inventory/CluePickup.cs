@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CluePickup : ButtonBaseFunction
 {
@@ -6,7 +6,7 @@ public class CluePickup : ButtonBaseFunction
 
     protected override void OnMouseDown()
     {
-        if (!TestSceneManager.instance.buttonInteruption)
+        if (!ProgressManager.instance.buttonInteruption)
         {
             InventoryManager.instance.Add(clue);
             Destroy(gameObject);

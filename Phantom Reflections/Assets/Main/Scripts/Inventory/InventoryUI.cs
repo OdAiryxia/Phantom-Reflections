@@ -1,7 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static PauseManager;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -128,7 +127,7 @@ public class InventoryUI : MonoBehaviour
         PauseManager.instance.pauseButton?.onClick.AddListener(PauseManager.instance.TogglePause);
         PauseManager.instance.pauseButton.image.sprite = PauseManager.instance.pauseImage;
 
-        TestSceneManager.instance.buttonInteruption = false;
+        ProgressManager.instance.buttonInteruption = false;
         onInventoryInspector = false;
         Time.timeScale = 1f;
     }

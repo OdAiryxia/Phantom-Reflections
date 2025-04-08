@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,31 +9,31 @@ namespace Main
 {
     public class TitleScreenLogoLoop : MonoBehaviour
     {
-        private string folderPath = "Logo"; // «ü©wPNG§Ç¦C©Ò¦bªº¸ê®Æ§¨¸ô®| (¬Û¹ï©óResources)
+        private string folderPath = "Logo"; // æŒ‡å®šPNGåºåˆ—æ‰€åœ¨çš„è³‡æ–™å¤¾è·¯å¾‘ (ç›¸å°æ–¼Resources)
         private float frameRate = 0.05f;
 
         private Sprite[] frames;
         private Image imageComponent;
 
-        private void Start()
+        void Start()
         {
             LoadSprites();
             imageComponent = GetComponent<Image>();
             StartCoroutine(PlayAnimation());
         }
-        private void LoadSprites()
+        void LoadSprites()
         {
             frames = Resources.LoadAll<Sprite>(folderPath)
-                              .OrderBy(sprite => sprite.name) // ½T«O«ö¦WºÙ¶¶§Ç±Æ¦C
+                              .OrderBy(sprite => sprite.name) // ç¢ºä¿æŒ‰åç¨±é †åºæ’åˆ—
                               .ToArray();
 
             if (frames.Length == 0)
             {
-                Debug.LogError("¥¼§ä¨ì¥ô¦óSprite¡A½ĞÀË¬d¸ô®|©Î¤å¥ó¦W¡I");
+                Debug.LogError("æœªæ‰¾åˆ°ä»»ä½•Spriteï¼Œè«‹æª¢æŸ¥è·¯å¾‘æˆ–æ–‡ä»¶åï¼");
             }
         }
 
-        private IEnumerator PlayAnimation()
+        IEnumerator PlayAnimation()
         {
             int index = 0;
             while (true)
