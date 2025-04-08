@@ -402,6 +402,7 @@ public class ExorcismManager : MonoBehaviour
         }
         else
         {
+            events = null;
             EnableOverlayStage();
             title.text = "失敗";
         }

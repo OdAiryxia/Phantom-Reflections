@@ -25,7 +25,7 @@
 [ProtagonistSprite,6]
 這...[l]這樣啊...[w]
 [ProtagonistSprite,8]
-诶?[l]我昨天應該是在男側阿...?[w]
+诶?[l]我昨天應該是在男廁阿...?[w]
 [ProtagonistSprite,6]
 是[l]是我朋友要我轉交的[w]
 [ProtagonistSprite,7]

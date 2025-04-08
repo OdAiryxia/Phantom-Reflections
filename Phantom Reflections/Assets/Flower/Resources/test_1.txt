@@ -1,7 +1,7 @@
 ﻿[LockButton]
 [show]
 [ProtagonistSprite,0]
-感覺有一些頭緒了[l]
+感覺有一些頭緒了[lr]
 去找彥蓁整理一下思緒吧[w]
 [c]
 [hide]
