@@ -1196,6 +1196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9d4888c237c8d4998c8027881b958b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  opponentImage: {fileID: 230940614}
+  osText: {fileID: 622837529}
   questions: []
   activeQuestions: []
   currentQuestionIndex: 0
@@ -1258,7 +1260,7 @@ GameObject:
   - component: {fileID: 211698302}
   - component: {fileID: 211698301}
   m_Layer: 5
-  m_Name: option_1
+  m_Name: option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1296,8 +1298,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a775c1bc84c918e48abdd3d27eb2fc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNewAnswer: 0
+  answer: 
+  answerOS: 
+  isCorrect: 0
   id: 
   newAnswer: 
+  newAnswerOS: 
+  isNewCorrect: 0
 --- !u!114 &211698302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2279,7 +2287,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 420, y: -50}
-  m_SizeDelta: {x: 416, y: 74.67}
+  m_SizeDelta: {x: 416, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &622837528
 MonoBehaviour:
@@ -3440,12 +3448,12 @@ GameObject:
   - component: {fileID: 1153131170}
   - component: {fileID: 1153131169}
   m_Layer: 5
-  m_Name: Exorcism_ProtagonistDialogue
+  m_Name: Exorcism_osDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1153131168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3464,7 +3472,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 60}
-  m_SizeDelta: {x: 856, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1153131169
 MonoBehaviour:
@@ -3779,9 +3787,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 30
-  m_WholeNumbers: 0
-  m_Value: 10
+  m_MaxValue: 60
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4231,7 +4239,7 @@ GameObject:
   - component: {fileID: 1387498433}
   - component: {fileID: 1387498432}
   m_Layer: 5
-  m_Name: option_1
+  m_Name: option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4269,8 +4277,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a775c1bc84c918e48abdd3d27eb2fc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNewAnswer: 0
+  answer: 
+  answerOS: 
+  isCorrect: 0
   id: 
   newAnswer: 
+  newAnswerOS: 
+  isNewCorrect: 0
 --- !u!114 &1387498433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4660,7 +4674,7 @@ GameObject:
   - component: {fileID: 1580557092}
   - component: {fileID: 1580557091}
   m_Layer: 5
-  m_Name: option_1
+  m_Name: option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4698,8 +4712,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a775c1bc84c918e48abdd3d27eb2fc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNewAnswer: 0
+  answer: 
+  answerOS: 
+  isCorrect: 0
   id: 
   newAnswer: 
+  newAnswerOS: 
+  isNewCorrect: 0
 --- !u!114 &1580557092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5690,7 +5710,7 @@ GameObject:
   - component: {fileID: 2036273319}
   - component: {fileID: 2036273318}
   m_Layer: 5
-  m_Name: option_1
+  m_Name: option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5728,8 +5748,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a775c1bc84c918e48abdd3d27eb2fc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNewAnswer: 0
+  answer: 
+  answerOS: 
+  isCorrect: 0
   id: 
   newAnswer: 
+  newAnswerOS: 
+  isNewCorrect: 0
 --- !u!114 &2036273319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6038,7 +6064,7 @@ GameObject:
   - component: {fileID: 2131174017}
   - component: {fileID: 2131174016}
   m_Layer: 5
-  m_Name: option_1
+  m_Name: option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6076,8 +6102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a775c1bc84c918e48abdd3d27eb2fc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNewAnswer: 0
+  answer: 
+  answerOS: 
+  isCorrect: 0
   id: 
   newAnswer: 
+  newAnswerOS: 
+  isNewCorrect: 0
 --- !u!114 &2131174017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6528,8 +6560,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u78BA\u8A8D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
-  m_sharedMaterial: {fileID: -3186967356246322078, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
+  m_sharedMaterial: {fileID: -3186967356246322078, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6809,8 +6841,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u53D6\u6D88"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
-  m_sharedMaterial: {fileID: -3186967356246322078, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
+  m_sharedMaterial: {fileID: -3186967356246322078, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6900,8 +6932,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6E2C\u8A66"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
-  m_sharedMaterial: {fileID: -3186967356246322078, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
+  m_sharedMaterial: {fileID: -3186967356246322078, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7937,8 +7969,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6587\u5B57\u5360\u7528\u7B26\u6587\u5B57\u5360\u7528\u7B26\u6587\u5B57\u5360\u7528\u7B26\u6587\u5B57\u5360\u7528\u7B26\n\u6587\u5B57\u5360\u7528\u7B26\u6587\u5B57\u5360\u7528\u7B26\u6587\u5B57\u5360\u7528\u7B26\u6587\u5B57\u5360\u7528\u7B26\n\u6587\u5B57\u5360\u7528\u7B26\u6587\u5B57\u5360\u7528\u7B26\u6587\u5B57\u5360\u7528\u7B26\u6587\u5B57\u5360\u7528\u7B26"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
-  m_sharedMaterial: {fileID: -3186967356246322078, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
+  m_sharedMaterial: {fileID: -3186967356246322078, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8222,8 +8254,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u96E2\u958B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
-  m_sharedMaterial: {fileID: -3186967356246322078, guid: 9a951447c0cd07a45a00f8d1e9f514d7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
+  m_sharedMaterial: {fileID: -3186967356246322078, guid: d5f9a84af8f8a4f43ab0738861961256, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8486,7 +8518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2.5, y: -449.99988}
+  m_AnchoredPosition: {x: -2.5, y: -449.99997}
   m_SizeDelta: {x: 180, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6125684400534657631
@@ -9323,7 +9355,7 @@ GameObject:
   - component: {fileID: 823259855715336663}
   - component: {fileID: 8789947998623707668}
   m_Layer: 5
-  m_Name: option_1
+  m_Name: option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9341,8 +9373,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a775c1bc84c918e48abdd3d27eb2fc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNewAnswer: 0
+  answer: 
+  answerOS: 
+  isCorrect: 0
   id: 
   newAnswer: 
+  newAnswerOS: 
+  isNewCorrect: 0
 --- !u!1 &8805866575926671482
 GameObject:
   m_ObjectHideFlags: 0

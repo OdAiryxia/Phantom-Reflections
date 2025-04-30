@@ -13,7 +13,6 @@ public class DraggableClue : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -21,6 +20,17 @@ public class DraggableClue : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         originalParent = transform.parent;
         transform.SetParent(originalParent.root); // 讓它不受父物件影響
         canvasGroup.blocksRaycasts = false; // 避免擋住 Drop 事件
+
+        DraggableReceiver[] receivers = FindObjectsByType<DraggableReceiver>(FindObjectsSortMode.None);
+        foreach (var receiver in receivers)
+        {
+            if (!string.IsNullOrEmpty(receiver.id))
+            {
+                TextWiggleEffect wiggle = receiver.GetComponentInChildren<TextWiggleEffect>();
+                wiggle.shakeAmount += 0.5f;
+                wiggle.speed += 10f;
+            }
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -32,5 +42,16 @@ public class DraggableClue : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.SetParent(originalParent); // 拖曳結束，回到原本的父物件
         canvasGroup.blocksRaycasts = true; // 重新啟用點擊
+
+        DraggableReceiver[] receivers = FindObjectsByType<DraggableReceiver>(FindObjectsSortMode.None);
+        foreach (var receiver in receivers)
+        {
+            if (!string.IsNullOrEmpty(receiver.id))
+            {
+                TextWiggleEffect wiggle = receiver.GetComponentInChildren<TextWiggleEffect>();
+                wiggle.shakeAmount -= 0.5f;
+                wiggle.speed -= 10f;
+            }
+        }
     }
 }

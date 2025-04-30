@@ -82,6 +82,7 @@ public class PauseManager : MonoBehaviour
     public void BackTitleScreen()
     {
         ScenesManager.instance.LoadMenu();
+        Resume();
     }
 
     public void CloseGame()

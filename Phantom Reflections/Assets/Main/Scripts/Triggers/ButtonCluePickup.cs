@@ -53,6 +53,11 @@ public class ButtonCluePickup : ButtonBaseFunction
                 ShowCurrentModal();
             }
 
+            if (this.GetComponent<AudioSource>() != null)
+            {
+                AudioManager.instance.audioSource.resource = gameObject.GetComponent<AudioSource>().resource;
+            }
+
             if (!isPicked)
             {
                 if (線索 != null)
@@ -123,6 +128,11 @@ public class ButtonCluePickup : ButtonBaseFunction
             {
                 ModalWindowManager.instance.Close();
 
+                if (AudioManager.instance.audioSource.resource != null)
+                {
+                    AudioManager.instance.Play();
+                }
+
                 if (!string.IsNullOrEmpty(故事) && (!storyPlayed || 再次播放))
                 {
                     flowerSys.ReadTextFromResource(故事);
@@ -142,6 +152,11 @@ public class ButtonCluePickup : ButtonBaseFunction
             {
                 ModalWindowManager.instance.Close();
 
+                if (AudioManager.instance.audioSource.resource != null)
+                {
+                    AudioManager.instance.Play();
+                }
+
                 if (!string.IsNullOrEmpty(故事) && (!storyPlayed || 再次播放))
                 {
                     flowerSys.ReadTextFromResource(故事);
@@ -160,6 +175,11 @@ public class ButtonCluePickup : ButtonBaseFunction
             currentTemplate.alternateText, () =>
             {
                 ModalWindowManager.instance.Close();
+
+                if (AudioManager.instance.audioSource.resource != null)
+                {
+                    AudioManager.instance.Play();
+                }
 
                 if (!string.IsNullOrEmpty(故事) && (!storyPlayed || 再次播放))
                 {

@@ -11,6 +11,9 @@ public class ExorcismManager : MonoBehaviour
     public static ExorcismManager instance;
 
     [Header("題庫與狀態")]
+    public Image opponentImage;
+    public TMP_Text osText;
+
     public ExorcismQuestion[] questions;
     public ExorcismQuestion[] activeQuestions; // 複製用
     public int currentQuestionIndex = 0;
@@ -32,7 +35,7 @@ public class ExorcismManager : MonoBehaviour
     [Header("計時器")]
     [SerializeField] private Slider timerSlider;
     [SerializeField] private TextMeshProUGUI timerText;
-    private float timeRemaining = 30f;
+    private float timeRemaining = 60f;
 
     [Header("Overlay效果")]
     [SerializeField] private Sprite[] stage_one;
@@ -86,7 +89,6 @@ public class ExorcismManager : MonoBehaviour
         ProgressManager.instance.buttonInteruption = true;
         InventoryUI.instance.Hide();
 
-
         isEnding = false;
         canvasGroup.alpha = 1f;
         canvasGroup.interactable = true;
@@ -94,7 +96,7 @@ public class ExorcismManager : MonoBehaviour
 
         onExorcismProgress = true;
         clueBar.enabled = true;
-        timeRemaining = 30f;
+        timeRemaining = 60f;
         timerText.color = Color.white;
 
         title.text = "除靈";
@@ -116,6 +118,7 @@ public class ExorcismManager : MonoBehaviour
             ExorcismQuestion source = questions[i];
             ExorcismQuestion copy = ScriptableObject.CreateInstance<ExorcismQuestion>();
             copy.questionText = source.questionText;
+            copy.protaginistOS = source.protaginistOS;
 
             answers[] copiedAnswers = new answers[source.answers.Length];
             for (int j = 0; j < copiedAnswers.Length; j++)
@@ -124,9 +127,12 @@ public class ExorcismManager : MonoBehaviour
                 copiedAnswers[j] = new answers
                 {
                     answer = src.answer,
+                    answerOS = src.answerOS,
+                    isCorrect = src.isCorrect,
                     id = src.id,
                     newAnswer = src.newAnswer,
-                    isCorrect = src.isCorrect,
+                    newAnswerOS = src.newAnswerOS,
+                    isNewCorrect = src.isNewCorrect
                 };
             }
             copy.answers = copiedAnswers;
@@ -151,7 +157,18 @@ public class ExorcismManager : MonoBehaviour
         ExorcismQuestion currentQuestion = activeQuestions[currentQuestionIndex];
         questionText.text = currentQuestion.questionText;
 
-        timeRemaining = 30f;
+        if (currentQuestion.protaginistOS != null && currentQuestion.protaginistOS.Length > 0)
+        {
+            osText.text = currentQuestion.protaginistOS[Random.Range(0, currentQuestion.protaginistOS.Length)];
+            LayoutRebuilder.ForceRebuildLayoutImmediate(osText.GetComponentInParent<RectTransform>());
+        }
+        else
+        {
+            osText.text = "...";
+            LayoutRebuilder.ForceRebuildLayoutImmediate(osText.GetComponentInParent<RectTransform>());
+        }
+
+        timeRemaining = 60f;
         timerText.color = Color.white;
 
         foreach (Transform parent in optionParents)
@@ -223,8 +240,15 @@ public class ExorcismManager : MonoBehaviour
             DraggableReceiver draggableReceiver = newPrefab.GetComponent<DraggableReceiver>();
             if (draggableReceiver != null)
             {
+                draggableReceiver.isNewAnswer = false;
+
+                draggableReceiver.answer = currentQuestion.answers[index].answer;
+                draggableReceiver.answerOS = currentQuestion.answers[index].answerOS;
+                draggableReceiver.isCorrect = currentQuestion.answers[index].isCorrect;
                 draggableReceiver.id = currentQuestion.answers[index].id;
                 draggableReceiver.newAnswer = currentQuestion.answers[index].newAnswer;
+                draggableReceiver.newAnswerOS = currentQuestion.answers[index].newAnswerOS;
+                draggableReceiver.isNewCorrect = currentQuestion.answers[index].isNewCorrect;
             }
 
             Button button = newPrefab.GetComponent<Button>();
