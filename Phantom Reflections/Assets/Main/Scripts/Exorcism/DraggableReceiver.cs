@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class DraggableReceiver : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -78,15 +79,60 @@ public class DraggableReceiver : MonoBehaviour, IDropHandler, IPointerEnterHandl
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (ExorcismManager.instance.onExorcismProgress)
+        try
         {
+            if (ExorcismManager.instance == null || !ExorcismManager.instance.onExorcismProgress)
+            {
+                return;
+            }
+
+            // 非常重要的索引检查
+            if (ExorcismManager.instance.currentQuestionIndex < 0 ||
+                ExorcismManager.instance.currentQuestionIndex >= ExorcismManager.instance.activeQuestions.Length)
+            {
+                if (ExorcismManager.instance.osText != null)
+                {
+                    ExorcismManager.instance.osText.text = "...";
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(ExorcismManager.instance.osText.GetComponentInParent<RectTransform>());
+                }
+                return;
+            }
+
             ExorcismQuestion currentQuestion = ExorcismManager.instance.activeQuestions[ExorcismManager.instance.currentQuestionIndex];
+
+            if (currentQuestion == null)
+            {
+                if (ExorcismManager.instance.osText != null)
+                {
+                    ExorcismManager.instance.osText.text = "...";
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(ExorcismManager.instance.osText.GetComponentInParent<RectTransform>());
+                }
+                return;
+            }
+
             if (currentQuestion.protaginistOS != null && currentQuestion.protaginistOS.Length > 0)
             {
-                ExorcismManager.instance.osText.text = currentQuestion.protaginistOS[Random.Range(0, currentQuestion.protaginistOS.Length)];
+                int randomIndex = Random.Range(0, currentQuestion.protaginistOS.Length);
+                if (randomIndex >= 0 && randomIndex < currentQuestion.protaginistOS.Length)
+                {
+                    ExorcismManager.instance.osText.text = currentQuestion.protaginistOS[randomIndex];
+                }
+                else
+                {
+                    ExorcismManager.instance.osText.text = "...";
+                }
                 LayoutRebuilder.ForceRebuildLayoutImmediate(ExorcismManager.instance.osText.GetComponentInParent<RectTransform>());
             }
             else
+            {
+                ExorcismManager.instance.osText.text = "...";
+                LayoutRebuilder.ForceRebuildLayoutImmediate(ExorcismManager.instance.osText.GetComponentInParent<RectTransform>());
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("OnPointerExit 發生異常: " + e.Message);
+            if (ExorcismManager.instance != null && ExorcismManager.instance.osText != null)
             {
                 ExorcismManager.instance.osText.text = "...";
                 LayoutRebuilder.ForceRebuildLayoutImmediate(ExorcismManager.instance.osText.GetComponentInParent<RectTransform>());

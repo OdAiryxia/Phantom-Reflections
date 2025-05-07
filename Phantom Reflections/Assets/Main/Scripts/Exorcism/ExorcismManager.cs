@@ -13,6 +13,9 @@ public class ExorcismManager : MonoBehaviour
     [Header("題庫與狀態")]
     public Image opponentImage;
     public TMP_Text osText;
+    public AudioSource bgm;
+    public AudioSource sfx;
+    public AudioClip lose_sound;
 
     public ExorcismQuestion[] questions;
     public ExorcismQuestion[] activeQuestions; // 複製用
@@ -88,6 +91,8 @@ public class ExorcismManager : MonoBehaviour
     {
         ProgressManager.instance.buttonInteruption = true;
         InventoryUI.instance.Hide();
+        ProgressManager.instance.audioSource.Stop();
+        bgm.Play();
 
         isEnding = false;
         canvasGroup.alpha = 1f;
@@ -360,6 +365,8 @@ public class ExorcismManager : MonoBehaviour
 
         clueBar.enabled = false;
 
+        bgm.Stop();
+
         foreach (Transform child in clueParent)
         {
             DraggableClue draggableClue = child.GetComponent<DraggableClue>();
@@ -428,11 +435,13 @@ public class ExorcismManager : MonoBehaviour
         {
             events = null;
             EnableOverlayStage();
+            sfx.resource = lose_sound;
+            sfx.Play();
             title.text = "失敗";
         }
-
-        yield return StartCoroutine(BlackScreenManager.instance.Transition(canvasGroup));
         onExorcismProgress = false;
+        yield return StartCoroutine(BlackScreenManager.instance.Transition(canvasGroup));
+        ProgressManager.instance.audioSource.Play();
         ProgressManager.instance.buttonInteruption = false;
     }
 

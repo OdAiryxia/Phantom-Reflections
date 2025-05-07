@@ -12,7 +12,7 @@ public class ProgressManager : MonoBehaviour
     private FlowerSystem flowerSys;
     public static ProgressManager instance;
 
-    [SerializeField] private AudioSource audioSource;
+    public AudioSource audioSource;
 
     [SerializeField] private GameObject case_2_object;
     void Awake()

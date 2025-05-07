@@ -54,7 +54,7 @@ public class TitleScreenManager : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float t = elapsed / duration;
-            vignette.transform.localScale = Vector3.Lerp(new Vector3(0.33f, 0.33f, 0.33f), Vector3.one, t);
+            vignette.transform.localScale = Vector3.Lerp(new Vector3(0.5f, 0.5f, 0.5f), Vector3.one, t);
 
             Color newColor = vignette.color;
             newColor.a = Mathf.Lerp(1, alpha, t);

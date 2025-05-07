@@ -452,6 +452,7 @@ namespace Flower
                 var UIStagePrefab = LoadResource<GameObject>(resourcePath);
                 var uiStage = CreateAsSceneObject("_UIStage_" + key, UIStagePrefab, Vector3.zero, false);
                 uiStage.GetComponent<Canvas>().sortingOrder = sortLayer;
+                //uiStage.GetComponent<CanvasScaler>().referenceResolution = new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
             }
             catch (Exception e)
             {
@@ -880,8 +881,21 @@ namespace Flower
                 sceneObj.transform.SetParent(uiStage.transform);
                 Image img = sceneObj.GetComponent<Image>();
                 img.sprite = sp;
-                img.SetNativeSize();
-                img.rectTransform.anchoredPosition = new Vector2(x, y);
+
+                // 设置为全屏
+                RectTransform rectTransform = img.rectTransform;
+
+                // 重置位置和锚点
+                rectTransform.anchorMin = Vector2.zero;
+                rectTransform.anchorMax = Vector2.one;
+                rectTransform.pivot = new Vector2(0.5f, 0.5f);
+
+                // 将四边距离设为0，使图像填充整个父对象
+                rectTransform.offsetMin = Vector2.zero;
+                rectTransform.offsetMax = Vector2.zero;
+
+                //img.SetNativeSize();
+                //img.rectTransform.anchoredPosition = new Vector2(x, y);
             }
             catch (Exception e)
             {
