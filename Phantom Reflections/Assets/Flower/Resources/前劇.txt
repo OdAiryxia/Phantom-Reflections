@@ -40,7 +40,7 @@
 [wait,1000]
 ......[w]
 [ProtagonistSprite,3]
-好像做了甚麼夢?[w]
+好像做了什麼夢?[w]
 [ProtagonistSprite,11]
 嘿！[l]今天可是要來召喚碟仙大人欸[w]
 [ProtagonistSprite,6]
@@ -213,7 +213,7 @@
 [remove,cg4,uiImageFadeOut_1000]
 你說的社長是誰?[w]
 [ProtagonistSprite,6]
-甚麼?[w]
+什麼?[w]
 學長阿[l]靈異調查社的社長阿[w]
 [ui_image,cg4,Image\03,0,0,default,uiImageFadeIn_1000]
 [ProtagonistSprite,19]
@@ -221,7 +221,7 @@
 [remove,cg4,uiImageFadeOut_1000]
 不是你嗎?[w]
 [ProtagonistSprite,6]
-甚麼?
+什麼?
 [ProtagonistSprite,0]
 ...
 [c]

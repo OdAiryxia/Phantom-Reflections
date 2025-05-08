@@ -11,7 +11,7 @@
 你從哪裡找到的！[w]
 [ProtagonistSprite,0]
 就在她的桌上...[w]
-你知道位甚麼在桌上嗎?[w]
+你知道為什麼在桌上嗎?[w]
 [ProtagonistSprite,26]
 ......[w]
 [ProtagonistSprite,4]

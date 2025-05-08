@@ -9,11 +9,12 @@ public class PauseManager : MonoBehaviour
     public enum GameState
     {
         Playing,
-        Paused
+        Paused,
+        Menu
     }
 
     public static PauseManager instance;
-    public GameState currentState = GameState.Playing;
+    public GameState currentState = GameState.Menu;
     [SerializeField] private GameObject pauseMenuUI;
     [HideInInspector] public Button pauseButton;
 
@@ -38,7 +39,7 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !SceneManager.GetSceneByBuildIndex((int)SceneIndexes.TitleScreen).isLoaded)
         {
             if (!InventoryUI.instance.onInventoryInspector)
             {
@@ -62,6 +63,9 @@ public class PauseManager : MonoBehaviour
             case GameState.Paused:
                 Resume();
                 break;
+            case GameState.Menu:
+                Resume();
+                break;
         }
     }
 
@@ -70,6 +74,7 @@ public class PauseManager : MonoBehaviour
         pauseMenuUI?.SetActive(false);
         Time.timeScale = 1f;
         currentState = GameState.Playing;
+        pauseButton.gameObject.SetActive(true);
     }
 
     public void Pause()
@@ -77,12 +82,14 @@ public class PauseManager : MonoBehaviour
         pauseMenuUI?.SetActive(true);
         Time.timeScale = 0f;
         currentState = GameState.Paused;
+        pauseButton.gameObject.SetActive(true);
     }
 
     public void BackTitleScreen()
     {
         ScenesManager.instance.LoadMenu();
         Resume();
+        pauseButton.gameObject.SetActive(false);
     }
 
     public void CloseGame()

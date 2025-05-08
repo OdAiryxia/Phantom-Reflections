@@ -3735,9 +3735,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "\u89F8\u767C\u5F48\u51FA\u8996\u7A97": 1
   "\u5F48\u51FA\u8996\u7A97":
-    title: "\u7570\u57DF\u8FF4\u97FF"
-    image: {fileID: 21300000, guid: 0626191c025201c4682fb2352dc22ca7, type: 3}
-    context: "\u65E9\u516B\u5718\u968A\u53E6\u5916\u7684\u904A\u6232"
+    title: "\u300A\u7570\u57DF\u8FF4\u97FF\u300B"
+    image: {fileID: 21300000, guid: 832e9bb417ba5234aa79c722d6b4ef3d, type: 3}
+    context: "\u65E9\u516B\u5718\u968A\u53E6\u5916\u7684\u904A\u6232\u53EF\u4EE5\u5728\n\u65B0\u4E00\u4EE3\u4E9E\u6D32\u6578\u5A92(E-01)&\n\u653E\u8996\u4E9E\u6D32\u6578\u5A92(I-01)\u904A\u73A9"
     confirmText: "\u597D\u73A9"
     declineText: 
     alternateText: 
@@ -6030,7 +6030,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924843971}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d84a72b65502fcf4bb174c07c7371491, type: 3}
   m_Name: 

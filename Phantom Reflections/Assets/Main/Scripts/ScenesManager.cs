@@ -26,6 +26,7 @@ public class ScenesManager : MonoBehaviour
         if (loadMenuOnStart)
         {
             SceneManager.LoadSceneAsync((int)SceneIndexes.TitleScreen, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync((int)SceneIndexes.UI, LoadSceneMode.Additive);
             isMenu = true;
         }
     }
@@ -43,7 +44,7 @@ public class ScenesManager : MonoBehaviour
         isMenu = true;
 
         SceneManager.UnloadSceneAsync((int)SceneIndexes.SampleScene);
-        SceneManager.UnloadSceneAsync((int)SceneIndexes.UI);
+        //SceneManager.UnloadSceneAsync((int)SceneIndexes.UI);
         SceneManager.LoadSceneAsync((int)SceneIndexes.TitleScreen, LoadSceneMode.Additive);
         //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex((int)SceneIndexes.TitleScreen));
     }
@@ -53,7 +54,7 @@ public class ScenesManager : MonoBehaviour
         isMenu = false;
 
         SceneManager.UnloadSceneAsync((int)SceneIndexes.TitleScreen);
-        SceneManager.LoadSceneAsync((int)SceneIndexes.UI, LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync((int)SceneIndexes.UI, LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync((int)SceneIndexes.SampleScene, LoadSceneMode.Additive);
         //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex((int)SceneIndexes.SampleScene));
     }

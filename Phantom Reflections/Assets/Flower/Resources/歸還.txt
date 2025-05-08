@@ -27,11 +27,11 @@
 [ProtagonistSprite,8]
 诶?[l]我昨天應該是在男廁阿...?[w]
 [ProtagonistSprite,6]
-是[l]是我朋友要我轉交的[w]
+是...[l]是我朋友要我轉交的[w]
 [ProtagonistSprite,7]
 這樣啊。[l]謝謝,[l]幫大忙了[w]
 [ProtagonistSprite,2]
-不[l]不會...[l]哈哈哈...
+不...[l]不會...[l]哈哈哈...
 [ProtagonistSprite,0]
 [c]
 [hide]

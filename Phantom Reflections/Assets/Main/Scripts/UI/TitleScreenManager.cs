@@ -7,13 +7,17 @@ using UnityEngine.SceneManagement;
 public class TitleScreenManager : MonoBehaviour
 {
     [SerializeField] private Button startButton;
+    [SerializeField] private Button htpButton;
     [SerializeField] private Button exitButton;
     [SerializeField] private Image vignette;
+    [TextArea(20,10)]
+    [SerializeField] private string htptext;
     private float alpha;
 
     void Awake()
     {
         startButton.onClick.AddListener(OnStartButtonClicked);
+        htpButton.onClick.AddListener(OnHTPButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
 
         alpha = vignette.color.a;
@@ -38,6 +42,16 @@ public class TitleScreenManager : MonoBehaviour
     private void OnStartButtonClicked()
     {
         ScenesManager.instance.LoadScene();
+        PauseManager.instance.Resume();
+    }
+
+    private void OnHTPButtonClicked()
+    {
+        ModalWindowManager.instance.ShowVertical("如何遊玩", null, htptext, "確認", 
+            () =>
+        {
+            ModalWindowManager.instance.Close();
+        });
     }
 
     private void OnExitButtonClicked()
