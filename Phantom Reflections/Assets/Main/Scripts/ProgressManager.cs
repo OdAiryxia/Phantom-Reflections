@@ -30,10 +30,8 @@ public class ProgressManager : MonoBehaviour
 
     void Start()
     {
-        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
-
         flowerSys.textSpeed = 0.05f;
-        flowerSys.SetScreenReference(Screen.currentResolution.width, Screen.currentResolution.height);
+        flowerSys.SetScreenReference(Screen.width, Screen.height);
         flowerSys.RegisterCommand("LockButton", LockButton);
         flowerSys.RegisterCommand("ReleaseButton", ReleaseButton);
         flowerSys.RegisterCommand("SetQuestions", SetQuestions);

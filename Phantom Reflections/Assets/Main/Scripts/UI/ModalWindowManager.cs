@@ -62,7 +62,10 @@ public class ModalWindowManager : MonoBehaviour
     {
         panel.gameObject.SetActive(false);
         modalWindow.gameObject.SetActive(false);
-        ProgressManager.instance.buttonInteruption = false;
+        if (ProgressManager.instance != null)
+        {
+            ProgressManager.instance.buttonInteruption = false;
+        }
     }
 
     public void ShowVertical(string title, Sprite image, string content, string confirmText, Action confirmAction, string declineText = null, Action declineAction = null, string alternateText = null, Action alternateAction = null)
@@ -124,8 +127,10 @@ public class ModalWindowManager : MonoBehaviour
             }
             alternateButton.onClick.AddListener(new UnityAction(alternateAction));
         }
-
-        ProgressManager.instance.buttonInteruption = true;
+        if (ProgressManager.instance != null)
+        {
+            ProgressManager.instance.buttonInteruption = true;
+        }
         StartCoroutine(DelayedShow());
     }
 
